@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 使用正确的Logo文件名 -->
+    <link rel="icon" type="image/x-icon" href="./mianxiaotuLOGO.jpg">
+    <link rel="apple-touch-icon" href="./mianxiaotuLOGO.jpg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>呼吸场冥想系统 - 基于AI的冥想与压力缓解平台</title>
+    
+    <!-- SEO 优化 -->
+    <meta name="description" content="智能呼吸场冥想系统，结合语音识别、AI压力分析与Three.js可视化，提供个性化冥想体验">
+    <meta name="keywords" content="冥想,呼吸,压力缓解,语音识别,可视化,Three.js,AI分析,喵小图">
+    <meta name="author" content="喵小图冥想工作室">
+    <meta name="theme-color" content="#0a0a1a">
+    
+    <!-- iOS Safari 优化 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="呼吸场冥想">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" as="image" href="./mianxiaotuLOGO.jpg">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <script type="module" crossorigin src="./assets/js/index-4f879fb7.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/js/vue-vendor-a7e05594.js">
+    <link rel="modulepreload" crossorigin href="./assets/js/three-vendor-9cce6b9a.js">
+    <link rel="stylesheet" href="./assets/css/index-b1927cdd.css">
+  </head>
+  <body>
+    <!-- 加载动画（在Vue加载前显示） -->
+    <div id="loading" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0a0a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    ">
+      <img src="./mianxiaotuLOGO.jpg" alt="喵小图冥想" style="
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        animation: pulse 2s infinite;
+      ">
+      <div style="color: white; font-size: 1.2rem;">加载中...</div>
+    </div>
+    
+    <!-- Vue 应用挂载点 -->
+    <div id="app"></div>
+    
+    <!-- 主应用脚本 -->
+    
+    
+    <!-- 隐藏加载动画的脚本 -->
+    <script>
+      // 当Vue应用加载完成后隐藏加载动画
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loading = document.getElementById('loading');
+          if (loading) {
+            loading.style.opacity = '0';
+            setTimeout(() => loading.style.display = 'none', 500);
+          }
+        }, 1000);
+      });
+      
+      // iOS Safari音频播放修复
+      document.addEventListener('touchstart', function() {
+        const unlockAudio = () => {
+          const audio = new Audio();
+          audio.autoplay = true;
+          audio.muted = true;
+          audio.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAA';
+          audio.play().then(() => {
+            audio.pause();
+            audio.remove();
+          }).catch(() => {});
+        };
+        unlockAudio();
+      }, { once: true });
+      
+      // CSS动画定义
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes pulse {
+          0% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.1); opacity: 0.8; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>
